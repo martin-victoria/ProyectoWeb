@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+Click nbfs://nbhost/SystemFileSystem/Templates/Other/xhtml.xhtml to edit this template
+-->
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html lang="es"
+      xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="jakarta.faces.core">
+    <h:head>
+        <title>Facelets Hello Greeting</title>
+    </h:head>
+    <h:body>
+        
+        <p:card style="width: 25rem; margin-bottom: 2em">
+            <f:facet name="title">Gestionar Docentes</f:facet>
+            
+            <h:panelGrid columns="3">
+                <p:outputLabel for="txfNuip" value="Nuip: "/>
+                <p:inputNumber id="txfNuip"></p:inputNumber>
+                <p:message for="txfNuip"></p:message>
+                
+                <p:outputLabel for="txfNombre" value="Nombre: "/>
+                <p:inputText id="txfNombre"></p:inputText>
+                <p:message for="txfNombre"></p:message>
+                
+                <p:outputLabel for="txfApellido" value="Apellido: "/>
+                <p:inputText id="txfApellido"></p:inputText>
+                <p:message for="txfApellido"></p:message>
+                
+                <p:outputLabel for="txfGenero" value="Genero: "/>
+                <p:inputText id="txfGenero"></p:inputText>
+                <p:message for="txfGenero"></p:message>
+                
+                <p:outputLabel for="txfProfesion" value="Profesion: "/>
+                <p:inputText id="txfProfesion"></p:inputText>
+                <p:message for="txfProfesion"></p:message>
+                
+            </h:panelGrid>
+            
+          
+            <f:facet name="footer">
+                <p:commandButton icon="pi pi-check" value="save"/>
+                <p:commandButton icon="pi pi-times" value="cancel"
+                                 styleClass="ui-button-secondary"
+                                 style="margin-left: .5em"/>
+            </f:facet>
+        </p:card>
+        
+        
+        
+    </h:body>
+</html>
