@@ -1,8 +1,3 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<!--
-Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
-Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/XHtml.xhtml to edit this template
--->
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html lang="es"
@@ -14,55 +9,41 @@ Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/XHtml.xhtml to edit t
         <title>Facelets Hello Greeting</title>
     </h:head>
     <h:body>
-        <!-- Formulario de docentes-->
-        <p:card style="width: 25rem; margin-bottom: 2em">
-            <f:facet name="title">Gestionar Asignaturas</f:facet>
+        <h:form>
+            <p:card style="width: 35rem; margin-bottom: 2em">
+                <f:facet name="title">Gestionar Asignaturas</f:facet>
+                <h:panelGrid columns="3">
+                    <p:outputLabel for="txfCodigo" value="Código: "/>
+                    <p:inputText id="txfCodigo" value="#{asignCtrl.asignatura.codigo}"/>
+                    <p:message for="txfCodigo"/>
+                    <p:outputLabel for="txfNombre" value="Nombre: "/>
+                    <p:inputText id="txfNombre" value="#{asignCtrl.asignatura.nombre}"/>
+                    <p:message for="txfNombre"/>
+                    <p:outputLabel for="txfCreditos" value="Créditos: "/>
+                    <p:inputNumber id="txfCreditos" value="#{asignCtrl.asignatura.creditos}"/>
+                    <p:message for="txfCreditos"/>
+                    <p:outputLabel for="txfIntensidad" value="Intensidad: "/>
+                    <p:inputNumber id="txfIntensidad" value="#{asignCtrl.asignatura.intensidad}"/>
+                    <p:message for="txfIntensidad"/>
+                </h:panelGrid>
+            </p:card>
+        </h:form>
 
-            <h:panelGrid columns="3">
-                <p:outputLabel for="txfCodigo" value="Codigo: "/>
-                <p:inputText id="txfCodigo"></p:inputText>
-                <p:message for="txfCodigo"></p:message>
-
-                <p:outputLabel for="txfNombre" value="Nombre: "/>
-                <p:inputText id="txfNombre"></p:inputText>
-                <p:message for="txfNombre"></p:message>
-
-                <p:outputLabel for="txfCreditos" value="Creditos: "/>
-                <p:inputNumber id="txfCreditos"></p:inputNumber>
-                <p:message for="txfCreditos"></p:message>
-
-                <p:outputLabel for="txfIntensidad" value="Intensidad: "/>
-                <p:inputNumber id="txfIntensidad"></p:inputNumber>
-                <p:message for="txfIntensidad"></p:message>
-            </h:panelGrid>
-
-
-            <f:facet name="footer">
-                <p:commandButton icon="pi pi-check" value="save"/>
-                <p:commandButton icon="pi pi-times" value="cancel"
-                                 styleClass="ui-button-secondary"
-                                 style="margin-left: .5em"/>
-            </f:facet>
+        <p:card style="width: 50rem; margin-bottom: 2em">
+            <p:dataTable var="asig" value="#{dtBasicView.products}">
+                <p:column headerText="Código">
+                    <h:outputText value="#{asignCtrl.asignatura.codigo}"/>
+                </p:column>
+                <p:column headerText="Nombre">
+                    <h:outputText value="#{asignCtrl.asignatura.nombre}"/>
+                </p:column>
+                <p:column headerText="Créditos">
+                    <h:outputText value="#{asignCtrl.asignatura.creditos}"/>
+                </p:column>
+                <p:column headerText="Intensidad">
+                    <h:outputText value="#{asignCtrl.asignatura.intensidad}"/>
+                </p:column>
+            </p:dataTable>
         </p:card>
-            <!-- tabla de PrimeFaces dataTable basic que mostrara asignaturas almacenadas en l base de datos -->
-             <p:card style="width: 50rem; margin-bottom: 2em">
-                <p:dataTable var="product" value="#{dtBasicView.products}">
-                    <p:column headerText="Code">
-                        <h:outputText value="#{product.code}" />
-                    </p:column>
-
-                    <p:column headerText="Name">
-                        <h:outputText value="#{product.name}" />
-                    </p:column>
-
-                    <p:column headerText="Category">
-                        <h:outputText value="#{product.category}" />
-                    </p:column>
-
-                    <p:column headerText="Quantity">
-                        <h:outputText value="#{product.quantity}" />
-                    </p:column>
-                </p:dataTable>
-             </p:card>
     </h:body>
 </html>
