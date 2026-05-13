@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!--
 Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
-Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/XHtml.xhtml to edit this template
+Click nbfs://nbhost/SystemFileSystem/Templates/Other/xhtml.xhtml to edit this template
 -->
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
@@ -16,24 +16,29 @@ Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/XHtml.xhtml to edit t
     <h:body>
         
         <p:card style="width: 25rem; margin-bottom: 2em">
-            <f:facet name="title">Gestionar Asignaturas</f:facet>
+            <f:facet name="title">Gestionar Docentes</f:facet>
             
             <h:panelGrid columns="3">
-                <p:outputLabel for="txfCodigo" value="Codigo: "/>
-                <p:inputText id="txfCodigo"></p:inputText>
-                <p:message for="txfCodigo"></p:message>
+                <p:outputLabel for="txfNuip" value="Nuip: "/>
+                <p:inputNumber id="txfNuip"></p:inputNumber>
+                <p:message for="txfNuip"></p:message>
                 
                 <p:outputLabel for="txfNombre" value="Nombre: "/>
                 <p:inputText id="txfNombre"></p:inputText>
                 <p:message for="txfNombre"></p:message>
                 
-                <p:outputLabel for="txfCreditos" value="Creditos: "/>
-                <p:inputNumber id="txfCreditos"></p:inputNumber>
-                <p:message for="txfCreditos"></p:message>
+                <p:outputLabel for="txfApellido" value="Apellido: "/>
+                <p:inputText id="txfApellido"></p:inputText>
+                <p:message for="txfApellido"></p:message>
                 
-                <p:outputLabel for="txfIntensidad" value="Intensidad: "/>
-                <p:inputNumber id="txfIntensidad"></p:inputNumber>
-                <p:message for="txfIntensidad"></p:message>
+                <p:outputLabel for="txfGenero" value="Genero: "/>
+                <p:inputText id="txfGenero"></p:inputText>
+                <p:message for="txfGenero"></p:message>
+                
+                <p:outputLabel for="txfProfesion" value="Profesion: "/>
+                <p:inputText id="txfProfesion"></p:inputText>
+                <p:message for="txfProfesion"></p:message>
+                
             </h:panelGrid>
             
           
