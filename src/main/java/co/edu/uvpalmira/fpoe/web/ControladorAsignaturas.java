@@ -2,9 +2,9 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package ControladorA;
+package co.edu.uvpalmira.fpoe.web;
 
-import Modelo.Asignatura;
+import co.edu.uvpalmira.fpoe.modelo.Asignatura;
 import jakarta.enterprise.context.SessionScoped;
 import jakarta.inject.Named;
 import java.io.Serializable;
