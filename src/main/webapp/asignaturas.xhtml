@@ -14,29 +14,29 @@ Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/XHtml.xhtml to edit t
         <title>Facelets Hello Greeting</title>
     </h:head>
     <h:body>
-        
+        <!-- Formulario de docentes-->
         <p:card style="width: 25rem; margin-bottom: 2em">
             <f:facet name="title">Gestionar Asignaturas</f:facet>
-            
+
             <h:panelGrid columns="3">
                 <p:outputLabel for="txfCodigo" value="Codigo: "/>
                 <p:inputText id="txfCodigo"></p:inputText>
                 <p:message for="txfCodigo"></p:message>
-                
+
                 <p:outputLabel for="txfNombre" value="Nombre: "/>
                 <p:inputText id="txfNombre"></p:inputText>
                 <p:message for="txfNombre"></p:message>
-                
+
                 <p:outputLabel for="txfCreditos" value="Creditos: "/>
                 <p:inputNumber id="txfCreditos"></p:inputNumber>
                 <p:message for="txfCreditos"></p:message>
-                
+
                 <p:outputLabel for="txfIntensidad" value="Intensidad: "/>
                 <p:inputNumber id="txfIntensidad"></p:inputNumber>
                 <p:message for="txfIntensidad"></p:message>
             </h:panelGrid>
-            
-          
+
+
             <f:facet name="footer">
                 <p:commandButton icon="pi pi-check" value="save"/>
                 <p:commandButton icon="pi pi-times" value="cancel"
@@ -44,8 +44,25 @@ Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/XHtml.xhtml to edit t
                                  style="margin-left: .5em"/>
             </f:facet>
         </p:card>
-        
-        
-        
+            <!-- tabla de PrimeFaces dataTable basic que mostrara asignaturas almacenadas en l base de datos -->
+             <p:card style="width: 50rem; margin-bottom: 2em">
+                <p:dataTable var="product" value="#{dtBasicView.products}">
+                    <p:column headerText="Code">
+                        <h:outputText value="#{product.code}" />
+                    </p:column>
+
+                    <p:column headerText="Name">
+                        <h:outputText value="#{product.name}" />
+                    </p:column>
+
+                    <p:column headerText="Category">
+                        <h:outputText value="#{product.category}" />
+                    </p:column>
+
+                    <p:column headerText="Quantity">
+                        <h:outputText value="#{product.quantity}" />
+                    </p:column>
+                </p:dataTable>
+             </p:card>
     </h:body>
 </html>
