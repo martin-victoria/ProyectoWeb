@@ -44,24 +44,20 @@ public class AsignaturaDAOTest {
             this.id = asig.getId();
             System.out.println(this.id);
             Assert.assertNotNull(asig.getId());
-            
+
             System.out.println("Buscar");
             asig = null;
             asig = asignaturaDAO.buscarPorCodigo("750014C");
             Assert.assertEquals("FPOE", asig.getNombre());
-            
+
+            System.out.println("Actualizar : " + this.id);
             asig.setNombre("Fund. Prog. 0. Eventos");
             this.asignaturaDAO.edit(asig);
-            
+            asig = null;
+
             asig = asignaturaDAO.buscarPorCodigo("750014C");
             Assert.assertEquals("Fund. Prog. 0. Eventos", asig.getNombre());
 
-        /*    System.out.println("buscarPorCodigo");
-            String codigo = "";
-            AsignaturaDAO instance = null;
-            Asignatura expResult = null;
-            Asignatura result = instance.buscarPorCodigo(codigo);
-            assertEquals(expResult, result); */
         } catch (Exception ex) {
             Logger.getLogger(AsignaturaDAOTest.class.getName()).log(Level.SEVERE, null, ex);
             fail();
@@ -76,6 +72,6 @@ public class AsignaturaDAOTest {
      * AsignaturaDAO instance = null; List<Asignatura> expResult = null;
      * List<Asignatura> result = instance.buscarPorEscuela(codigoEscuela);
      * assertEquals(expResult, result); }
-    *
+     *
      */
 }
