@@ -26,24 +26,29 @@
                     <p:inputNumber id="txfIntensidad" value="#{asignCtrl.asignatura.intensidad}"/>
                     <p:message for="txfIntensidad"/>
                 </h:panelGrid>
+
+                <p:messages id="mensajes" globalOnly="true" closable="true" />
+
+                <f:facet name="footer">
+                    <p:commandButton icon="pi pi-check" value="save"
+                                     action="#{asignCtrl.guardar()}"
+                                     process="@this txfCodigo txfNombre txfCreditos txfIntensidad"
+                                     update="mensajes txfCodigo txfNombre txfCreditos txfIntensidad tabla"/>
+                    <p:commandButton icon="pi pi-times" value="cancel"
+                                     styleClass="ui-button-secondary"
+                                     style="margin-left: .5em"
+                                     action="#{asignCtrl.cancelar()}"
+                                     process="@this"
+                                     update="mensajes txfCodigo txfNombre txfCreditos txfIntensidad"/>
+                </f:facet>
             </p:card>
         </h:form>
 
-        <p:card style="width: 50rem; margin-bottom: 2em">
-            <p:dataTable var="asig" value="#{dtBasicView.products}">
-                <p:column headerText="Código">
-                    <h:outputText value="#{asignCtrl.asignatura.codigo}"/>
-                </p:column>
-                <p:column headerText="Nombre">
-                    <h:outputText value="#{asignCtrl.asignatura.nombre}"/>
-                </p:column>
-                <p:column headerText="Créditos">
-                    <h:outputText value="#{asignCtrl.asignatura.creditos}"/>
-                </p:column>
-                <p:column headerText="Intensidad">
-                    <h:outputText value="#{asignCtrl.asignatura.intensidad}"/>
-                </p:column>
-            </p:dataTable>
-        </p:card>
+        <p:dataTable id="tabla" value="#{asignCtrl.asignaturas}" var="obj">
+            <p:column headerText="Código">#{obj.codigo}</p:column>
+            <p:column headerText="Nombre">#{obj.nombre}</p:column>
+            <p:column headerText="Créditos">#{obj.creditos}</p:column>
+            <p:column headerText="Intensidad">#{obj.intensidad}</p:column>
+        </p:dataTable>
     </h:body>
 </html>
