@@ -14,16 +14,16 @@
                 <f:facet name="title">Gestionar Asignaturas</f:facet>
                 <h:panelGrid columns="3">
                     <p:outputLabel for="txfCodigo" value="Código: "/>
-                    <p:inputText id="txfCodigo" value="#{asignCtrl.asignatura.codigo}"/>
+                    <p:inputText id="txfCodigo" value="#{asignCtrl.asignatura.codigo}" required="true"/>
                     <p:message for="txfCodigo"/>
                     <p:outputLabel for="txfNombre" value="Nombre: "/>
-                    <p:inputText id="txfNombre" value="#{asignCtrl.asignatura.nombre}"/>
+                    <p:inputText id="txfNombre" value="#{asignCtrl.asignatura.nombre}" required="true"/>
                     <p:message for="txfNombre"/>
                     <p:outputLabel for="txfCreditos" value="Créditos: "/>
-                    <p:inputNumber id="txfCreditos" value="#{asignCtrl.asignatura.creditos}"/>
+                    <p:inputNumber id="txfCreditos" value="#{asignCtrl.asignatura.creditos}" required="true"/>
                     <p:message for="txfCreditos"/>
                     <p:outputLabel for="txfIntensidad" value="Intensidad: "/>
-                    <p:inputNumber id="txfIntensidad" value="#{asignCtrl.asignatura.intensidad}"/>
+                    <p:inputNumber id="txfIntensidad" value="#{asignCtrl.asignatura.intensidad}" required="true"/>
                     <p:message for="txfIntensidad"/>
                 </h:panelGrid>
 

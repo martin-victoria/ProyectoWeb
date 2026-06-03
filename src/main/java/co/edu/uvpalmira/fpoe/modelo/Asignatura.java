@@ -10,6 +10,8 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
 import jakarta.persistence.NamedQueries;
 import jakarta.persistence.NamedQuery;
+import jakarta.validation.constraints.Min;
+import jakarta.validation.constraints.NotEmpty;
 
 @Entity
 @NamedQueries({
@@ -18,15 +20,19 @@ import jakarta.persistence.NamedQuery;
 })
 public class Asignatura extends AbstractEntity {
 
+    @NotEmpty
     @Column(nullable = false, length = 7, unique = true)
     private String codigo;
 
+    @NotEmpty
     @Column(nullable = false, length = 150, unique = false)
     private String nombre;
 
+    @Min(value=1)
     @Column(nullable = false)
     private byte creditos;
-
+    
+    @Min(value=1)
     @Column(nullable = false)
     private byte intensidad;
 
