@@ -20,7 +20,7 @@ import java.util.List;
  */
 @ApplicationScoped
 public class LogicaImplementacion implements ILogica{
-    @PersistenceUnit(name = "ProyectPU")
+    @PersistenceUnit(name = "ProjectPU")
     private EntityManagerFactory emf;
     
     private AsignaturaDAO asignaturaDAO;
