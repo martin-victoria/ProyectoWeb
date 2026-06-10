@@ -11,46 +11,57 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/xhtml.xhtml to edit this te
       xmlns:p="http://primefaces.org/ui"
       xmlns:f="jakarta.faces.core">
     <h:head>
-        <title>Facelets Hello Greeting</title>
+        <title>Gestionar Docentes</title>
     </h:head>
     <h:body>
-        
-        <p:card style="width: 25rem; margin-bottom: 2em">
-            <f:facet name="title">Gestionar Docentes</f:facet>
-            
-            <h:panelGrid columns="3">
-                <p:outputLabel for="txfNuip" value="Nuip: "/>
-                <p:inputNumber id="txfNuip"></p:inputNumber>
-                <p:message for="txfNuip"></p:message>
-                
-                <p:outputLabel for="txfNombre" value="Nombre: "/>
-                <p:inputText id="txfNombre"></p:inputText>
-                <p:message for="txfNombre"></p:message>
-                
-                <p:outputLabel for="txfApellido" value="Apellido: "/>
-                <p:inputText id="txfApellido"></p:inputText>
-                <p:message for="txfApellido"></p:message>
-                
-                <p:outputLabel for="txfGenero" value="Genero: "/>
-                <p:inputText id="txfGenero"></p:inputText>
-                <p:message for="txfGenero"></p:message>
-                
-                <p:outputLabel for="txfProfesion" value="Profesion: "/>
-                <p:inputText id="txfProfesion"></p:inputText>
-                <p:message for="txfProfesion"></p:message>
-                
-            </h:panelGrid>
-            
-          
-            <f:facet name="footer">
-                <p:commandButton icon="pi pi-check" value="save"/>
-                <p:commandButton icon="pi pi-times" value="cancel"
-                                 styleClass="ui-button-secondary"
-                                 style="margin-left: .5em"/>
-            </f:facet>
-        </p:card>
-        
-        
-        
+        <h:form> 
+            <p:card style="width: 25rem; margin-bottom: 2em">
+                <f:facet name="title">Gestionar Docentes</f:facet>
+                <h:panelGrid columns="3">
+                    <p:outputLabel for="txfNuip" value="Nuip: "/>
+                    <p:inputNumber id="txfNuip" value="#{docCtrl.docente.nuip}" required="true"></p:inputNumber>
+                    <p:message for="txfNuip"></p:message>
+
+                    <p:outputLabel for="txfNombre" value="Nombre: "/>
+                    <p:inputText id="txfNombre" value="#{docCtrl.docente.nombres}" required="true"></p:inputText>
+                    <p:message for="txfNombre"></p:message>
+
+                    <p:outputLabel for="txfApellido" value="Apellido: "/>
+                    <p:inputText id="txfApellido" value="#{docCtrl.docente.apellidos}" required="true"></p:inputText>
+                    <p:message for="txfApellido"></p:message>
+
+                    <p:outputLabel for="txfGenero" value="Genero: "/>
+                    <p:inputText id="txfGenero" value="#{docCtrl.docente.genero}" required="true"></p:inputText>
+                    <p:message for="txfGenero"></p:message>
+
+                    <p:outputLabel for="txfProfesion" value="Profesion: "/>
+                    <p:inputText id="txfProfesion" value="#{docCtrl.docente.profesion}" required="true"></p:inputText>
+                    <p:message for="txfProfesion"></p:message>
+
+                </h:panelGrid>
+
+                <p:messages id="mensajes" globalOnly="true" closable="true"/>
+
+                <f:facet name="footer">
+                    <p:commandButton icon="pi pi-check" value="guardar"
+                                     action="#{docCtrl.guardar()}"
+                                     process="@this txfNuip txfNombre txfApellido txfGenero txfProfesion"
+                                     update="mensajes txfNuip txfNombre txfApellido txfGenero txfProfesion tabla"/>
+                    <p:commandButton icon="pi pi-times" value="cancel"
+                                     action="#{docCtrl.cancelar()}"
+                                     process="@this"
+                                     update="mensajes txfNuip txfNombre txfApellido txfGenero txfProfesion tabla"
+                                     styleClass="ui-button-secondary"
+                                     style="margin-left: .5em"/>
+                </f:facet>
+            </p:card>
+            <p:dataTable id="tabla" value="#{docCtrl.docentes}" var="obj">
+                <p:column headerText="Nuip">#{obj.nuip}</p:column>
+                <p:column headerText="Nombre">#{obj.nombres}</p:column>
+                <p:column headerText="Apellidos">#{obj.apellidos}</p:column>
+                <p:column headerText="Genero">#{obj.genero}</p:column>
+                <p:column headerText="Profesion">#{obj.profesion}</p:column>
+            </p:dataTable>
+        </h:form>  
     </h:body>
 </html>
